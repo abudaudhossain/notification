@@ -9,12 +9,13 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAFNYI5O94JP7Drum9ivVe6CiKPuNQDahE",
-    authDomain: "notification-75b36.firebaseapp.com",
-    projectId: "notification-75b36",
-    storageBucket: "notification-75b36.firebasestorage.app",
-    messagingSenderId: "910218300815",
-    appId: "1:910218300815:web:cd3180a289927d9e500ffa"
+    apiKey: "AIzaSyBg9VGBZredsRpizZTa8ICI3PFE3cA9Tpo",
+    authDomain: "lead-management-sg.firebaseapp.com",
+    projectId: "lead-management-sg",
+    storageBucket: "lead-management-sg.firebasestorage.app",
+    messagingSenderId: "50274245974",
+    appId: "1:50274245974:web:5708424bccf1be9bcd8af7",
+    // measurementId: "G-XB743WTCKD"
 };
 
 // Initialize Firebase

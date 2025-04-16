@@ -8,19 +8,24 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 export default function Home() {
 
   async function requestPermission() {
-    //requesting permission using Notification API
-    const permission = await Notification.requestPermission();
+    try {
+      //requesting permission using Notification API
+      const permission = await Notification.requestPermission();
+      console.log("Permission status: ", permission);
+      if (permission === "granted") {
+        const token = await getToken(messaging, {
+          vapidKey: "BI3DJw0ldxGWhvyaS_AvIk91GhstFoU5wONRGUI1Cly7-ya2M9T0Bg0zglKSyL9KaMzRltI6QESNeNIlBdYf4vc",
+        });
 
-    if (permission === "granted") {
-      const token = await getToken(messaging, {
-        vapidKey: "BCnNzCFuP8f8Qxhk0JWGJUC5SLYfmPtZXwrfgUYj6TC-KsXVmmuhD3uErrFw8Fj3rqsA0C85JKq3ejwH7ZcHcqA",
-      });
+        //We can send token to server
+        console.log("Token generated : ", token);
+      } else if (permission === "denied") {
+        //notifications are blocked
+        alert("You denied for the notification");
+      }
+    } catch (error) {
+      console.error("Error getting permission: ", error);
 
-      //We can send token to server
-      console.log("Token generated : ", token);
-    } else if (permission === "denied") {
-      //notifications are blocked
-      alert("You denied for the notification");
     }
   }
 
